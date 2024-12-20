@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>YourAppName</string>  <!-- Замените на имя вашего приложения -->
+    <key>CFBundleVersion</key>
+    <string>${PROJECT_VERSION}</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.yourcompany.yourapp</string>  <!-- Замените на уникальный идентификатор вашего приложения -->
+    <key>CFBundleExecutable</key>
+    <string>YourExecutableName</string>  <!-- Замените на имя исполняемого файла -->
+</dict>
+</plist>
