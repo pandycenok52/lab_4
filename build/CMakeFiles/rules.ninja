@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: MyProject
+# Project: lab4
 # Configurations: Debug
 # =============================================================================
 # =============================================================================
@@ -14,7 +14,7 @@
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER__MyExecutable_unscanned_Debug
+rule CXX_COMPILER__lab4_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}C:\msys64\mingw64\bin\g++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -24,7 +24,7 @@ rule CXX_COMPILER__MyExecutable_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__MyExecutable_Debug
+rule CXX_EXECUTABLE_LINKER__lab4_Debug
   command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && C:\msys64\mingw64\bin\g++.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SC:\practica\lab_4-main -BC:\practica\lab_4-main\build
+  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SC:\practica\LABA_4\lab_4 -BC:\practica\LABA_4\lab_4\build
   description = Re-running CMake...
   generator = 1
 

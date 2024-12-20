@@ -1,8 +1,8 @@
 [
 {
-  "directory": "C:/practica/lab_4-main/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -g -std=gnu++11 -o CMakeFiles\\MyExecutable.dir\\main.cpp.obj -c C:\\practica\\lab_4-main\\main.cpp",
-  "file": "C:\\practica\\lab_4-main\\main.cpp",
-  "output": "CMakeFiles\\MyExecutable.dir\\main.cpp.obj"
+  "directory": "C:/practica/LABA_4/lab_4/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  -std=c++17 -g -o CMakeFiles\\lab4.dir\\main.cpp.obj -c C:\\practica\\LABA_4\\lab_4\\main.cpp",
+  "file": "C:\\practica\\LABA_4\\lab_4\\main.cpp",
+  "output": "CMakeFiles\\lab4.dir\\main.cpp.obj"
 }
 ]

@@ -1,60 +1,73 @@
-name: 'C++ CI on macOS'
+name: 'C++ CI'
 
-on:
+on: 
   push:
     branches:
       - main
-      - feature/github_actions
 
 jobs:
-  build:
-    runs-on: macos-latest  # Используем macOS для выполнения работы
-    permissions:
-      contents: write  # Необходимое разрешение для создания релиза
-
+  build_windows:
+    runs-on: windows-latest
+    permissions: write-all
     steps:
-      # Шаг 1: Проверка исходного кода
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           submodules: true
-
-      # Шаг 2: Установка зависимостей (например, Boost)
-      - name: Install dependencies
-        run: brew install cmake boost  # Установка CMake и Boost через Homebrew
-
-      # Шаг 3: Генерация файлов сборки с помощью CMake
-      - name: Configure CMake
-        run: cmake . -DCMAKE_BUILD_TYPE=Release
-
-      # Шаг 4: Сборка проекта
-      - name: Build project
-        run: cmake --build .
-
-      # Шаг 5: Запуск тестов (если у вас есть тесты)
-      - name: Run tests
-        run: ctest --output-on-failure
-
-      # Шаг 6: Создание релиза на GitHub (если необходимо)
-      - name: Create Release
-        id: create_release
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build .
+      - run: cmake --build . --target package
+      - name: List files
+        run: dir
+      - name: Create Release (windows)
+        id: create_release_windows
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.run_number }}   # Используйте номер сборки как тег
-          release_name: Release ${{ github.run_number }}
+          tag_name: windows${{ github.run_number }}
+          release_name: Release ${{ github.run_number }} (windows)
           draft: false
           prerelease: false
-
-      # Шаг 7: Загрузка артефактов релиза (например, исполняемый файл)
-      - name: Upload Release Asset
+      - name: Upload Release Asset (windows)
         id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./MyExecutable   # Убедитесь, что путь правильный к вашему исполняемому файлу!
-          asset_name: MyExecutable       # Имя артефакта в релизе
-          asset_content_type: application/octet-stream  # Тип контента для исполняемого файла
+          upload_url: ${{ steps.create_release_windows.outputs.upload_url }}
+          asset_path: ./lab4-0.0.${{ github.run_number }}-win64.zip
+          asset_name: lab4-0.0.${{ github.run_number }}-win64.zip
+          asset_content_type: application/zip
+  
+  build_ubuntu:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build .
+      - run: cmake --build . --target package
+      - name: List files (ubuntu)
+        run: ls
+      - name: Create Release (ubuntu)
+        id: create_release_ubuntu
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ubuntu${{ github.run_number }}
+          release_name: Release ${{ github.run_number }} (ubuntu)
+          draft: false
+          prerelease: false 
+      - name: Upload Release Asset (ubuntu)
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release_ubuntu.outputs.upload_url }}
+          asset_path: ./lab4-0.0.${{ github.run_number }}-Linux.zip
+          asset_name: lab4-0.0.${{ github.run_number }}-Linux.zip
+          asset_content_type: application/zip

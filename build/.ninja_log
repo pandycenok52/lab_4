@@ -1,3 +1,4 @@
 # ninja log v5
-30	811	7564136153037793	CMakeFiles/MyExecutable.dir/main.cpp.obj	8aba9a9e6ffe8fbf
 811	929	7564136154193000	MyExecutable.exe	52611abe2b806bcd
+17	810	7564160953941187	CMakeFiles/lab4.dir/main.cpp.obj	5d97ebc472babf58
+813	940	7564160955173511	lab4.exe	353d62f8e3dcb751

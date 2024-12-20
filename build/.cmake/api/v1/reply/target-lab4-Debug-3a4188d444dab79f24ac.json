@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "MyExecutable.exe"
+			"path" : "lab4.exe"
 		},
 		{
-			"path" : "MyExecutable.pdb"
+			"path" : "lab4.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -28,13 +28,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 5,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 13,
+				"line" : 14,
 				"parent" : 0
 			}
 		]
@@ -45,25 +45,17 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++11"
+					"fragment" : " -std=c++17 -g"
 				}
 			],
 			"language" : "CXX",
-			"languageStandard" : 
-			{
-				"backtraces" : 
-				[
-					1
-				],
-				"standard" : "11"
-			},
 			"sourceIndexes" : 
 			[
 				0
 			]
 		}
 	],
-	"id" : "MyExecutable::@6890427a1f51a3e7e1df",
+	"id" : "lab4::@6890427a1f51a3e7e1df",
 	"install" : 
 	{
 		"destinations" : 
@@ -75,7 +67,7 @@
 		],
 		"prefix" : 
 		{
-			"path" : "/usr/local"
+			"path" : "C:/Program Files (x86)/lab4"
 		}
 	},
 	"link" : 
@@ -83,7 +75,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-std=c++17 -g",
 				"role" : "flags"
 			},
 			{
@@ -97,8 +89,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "MyExecutable",
-	"nameOnDisk" : "MyExecutable.exe",
+	"name" : "lab4",
+	"nameOnDisk" : "lab4.exe",
 	"paths" : 
 	{
 		"build" : ".",

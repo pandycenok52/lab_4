@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-c1890cdff958ba7135e3.json",
+					"jsonFile" : "directory-.-Debug-1783c8948d153126aee0.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -28,7 +28,7 @@
 					[
 						0
 					],
-					"name" : "MyProject",
+					"name" : "lab4",
 					"targetIndexes" : 
 					[
 						0
@@ -39,9 +39,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "MyExecutable::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MyExecutable-Debug-b284150fccfe38b79757.json",
-					"name" : "MyExecutable",
+					"id" : "lab4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lab4-Debug-3a4188d444dab79f24ac.json",
+					"name" : "lab4",
 					"projectIndex" : 0
 				}
 			]
@@ -50,8 +50,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/practica/lab_4-main/build",
-		"source" : "C:/practica/lab_4-main"
+		"build" : "C:/practica/LABA_4/lab_4/build",
+		"source" : "C:/practica/LABA_4/lab_4"
 	},
 	"version" : 
 	{
